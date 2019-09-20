@@ -14,7 +14,10 @@
     "migrate": "yarn knex migrate:latest",
     "migration:make": "yarn knex migrate:make",
     "migration:rollback": "yarn knex migrate:rollback",
-    "start:debug": "yarn pm2 startOrRestart ./pm2/debug.json"
+	"start:dev": "yarn pm2 startOrRestart pm2/development.json",
+	"start:debug": "nodemon --inspect=19771 index.ts",
+	"start:prod": "yarn pm2 startOrRestart pm2/production.json",
+	"build": "rm -rf build/ & tsc & cp .env build/.env"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
@@ -30,6 +33,7 @@
     "koa-passport": "^4.1.3",
     "koa-router": "^7.4.0",
     "mysql": "^2.17.1",
+    "nodemon": "^1.19.2",
     "objection": "^1.6.9",
     "objection-timestamps": "^3.0.2",
     "objection-visibility": "^0.4.0",
