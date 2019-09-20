@@ -6,8 +6,8 @@ import { timestampPlugin } from 'objection-timestamps';
 const mixins = compose(
   Visibility,
   timestampPlugin({
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt',
+    createdAt: 'created_at',
+	updatedAt: 'updated_at',
   }),
 );
 

@@ -31,7 +31,6 @@
     "koa-router": "^7.4.0",
     "mysql": "^2.17.1",
     "objection": "^1.6.9",
-    "objection-password": "^2.0.0",
     "objection-timestamps": "^3.0.2",
     "objection-visibility": "^0.4.0",
     "passport-local": "^1.0.0"
