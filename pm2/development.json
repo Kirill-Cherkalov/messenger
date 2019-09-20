@@ -1,16 +1,16 @@
 {
-	"apps": [
-		{
-			"name": "koa-starter-development",
-			"script": "./index.ts",
-			"interpreter": "node_modules/.bin/ts-node",
-			"log_date_format": "YYYY-MM-DD HH:mm Z",
-			"exec_mode": "cluster",
-			"instances": 1,
-			"watch": true,
-			"env": {
-				"NODE_ENV": "development"
-			}
-		}
-	]
+  "apps": [
+    {
+      "name": "koa-starter-development",
+      "script": "./index.ts",
+      "interpreter": "node_modules/.bin/ts-node",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "exec_mode": "cluster",
+      "instances": 1,
+      "watch": true,
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  ]
 }
