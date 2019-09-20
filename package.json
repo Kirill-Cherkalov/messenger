@@ -11,7 +11,7 @@
   "scripts": {
     "pm2": "pm2",
     "knex": "knex --knexfile ./knex/knexfile.migrate.ts",
-    "migrate": "knex migrate:latest",
+    "migrate": "yarn knex migrate:latest",
     "migration:make": "knex migrate:make",
     "migration:rollback": "knex migrate:rollback",
     "start:debug": "yarn pm2 startOrRestart ./pm2/debug.json"
