@@ -1,4 +1,4 @@
-import { logger } from '../logger';
+import * as logger from '../logger';
 import { captureException } from '../sentry';
 
 
@@ -17,8 +17,5 @@ export const errorHandler = (error, ctx) => {
     captureException(error);
   }
 
-  logger.error({
-    message: error.message,
-    stack: error.stack,
-  });
+  logger.error(error);
 };
