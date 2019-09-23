@@ -1,4 +1,8 @@
-export const middleware = async (ctx, next) => {
+import { logger } from '../logger';
+import { captureException } from '../sentry';
+
+
+export const errorCatchingMiddleware = async (ctx, next) => {
   try {
     await next();
   } catch (error) {
@@ -8,6 +12,13 @@ export const middleware = async (ctx, next) => {
   }
 };
 
-export const handler = (error, ctx) => {
-  console.error(error);
+export const errorHandler = (error, ctx) => {
+  if (ctx.status >= 500) {
+    captureException(error);
+  }
+
+  logger.error({
+    message: error.message,
+    stack: error.stack,
+  });
 };
