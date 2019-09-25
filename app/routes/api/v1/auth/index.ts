@@ -16,13 +16,21 @@ router
   .post('/logout', logout);
 
 async function login(ctx: IContext) {
-  ctx.body = ctx.state.user;
+  const { user } = ctx.state;
+
+  ctx.body = {
+    id: user.id,
+    email: user.email,
+  };
 }
 
 async function register(ctx: IContext) {
-  const user = await Auth.register(ctx.body);
-  ctx.body = user;
-  ctx.status = 200;
+  const user = await Auth.register(ctx.request.body);
+
+  ctx.body = {
+    id: user.id,
+    email: user.email,
+  };
 }
 
 async function logout(ctx: IContext) {
