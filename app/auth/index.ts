@@ -2,7 +2,7 @@ import { Context } from 'koa';
 import passport from 'koa-passport';
 import compose from 'koa-compose';
 
-import { User } from '../models/user';
+import User  from '../models/user';
 import emailStrategy from './strategies/email';
 
 passport.use('email', emailStrategy);

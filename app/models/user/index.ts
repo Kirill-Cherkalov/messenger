@@ -7,7 +7,7 @@ export type RegisterData = {
   password: string,
 }
 
-export class User extends Password(BaseModel) {
+export default class User extends Password(BaseModel) {
   readonly id!: number;
   email!: string;
   password!: string;
