@@ -2,7 +2,7 @@ import { Context } from 'koa';
 import passport from 'koa-passport';
 import compose from 'koa-compose';
 
-import User from '../models/user';
+import User  from '../models/user';
 import emailStrategy from './strategies/email';
 
 passport.use('email', emailStrategy);
@@ -25,24 +25,11 @@ passport.deserializeUser(async (id: number, done: Function) => {
   }
 });
 
-export const authEmail = (ctx: Context, next) => passport.authenticate('email', async (err, user, info) => {
-  if (err) {
-    throw new Error('');
-  }
+export const authEmail = passport.authenticate('email');
 
-  if (user) {
-    await ctx.login(user);
-    await next();
-  }
-
-  if (info && info.message) {
-
-  }
-})(ctx, next);
-
-export const isAuthenticated = () => async (ctx: Context, next) => {
+export const isAuthenticated = async (ctx: Context, next) => {
   if (!ctx.isAuthenticated()) {
-    throw new Error('');
+    ctx.throw(401);
   }
 
   await next();
@@ -50,6 +37,7 @@ export const isAuthenticated = () => async (ctx: Context, next) => {
 
 const auth = () => compose([
   passport.initialize(),
+  passport.session(),
 ]);
 
 export default auth;

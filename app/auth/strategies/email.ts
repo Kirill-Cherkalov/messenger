@@ -1,6 +1,6 @@
 import { Strategy as LocalStrategy } from 'passport-local';
 
-import User from '../../models/user';
+import User  from '../../models/user';
 
 const options = {
   usernameField: 'email',
