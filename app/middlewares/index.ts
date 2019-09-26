@@ -7,12 +7,16 @@ import logger from 'koa-logger';
 const isDevelopment: boolean = process.env.NODE_ENV === 'development';
 
 export default (app: Koa): void => {
-  app.use(body({
-    enableTypes: ['json', 'form', 'text'],
-  }));
-  app.use(cors({
-    credentials: true,
-  }));
+  app.use(
+    body({
+      enableTypes: ['json', 'form', 'text'],
+    }),
+  );
+  app.use(
+    cors({
+      credentials: true,
+    }),
+  );
 
   if (isDevelopment) {
     app.use(logger());

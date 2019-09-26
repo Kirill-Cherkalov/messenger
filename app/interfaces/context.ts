@@ -4,14 +4,14 @@ import User from '../models/user';
 
 interface IContext extends RouterContext {
   state: {
-    user: User,
-  },
+    user: User;
+  };
   /**
    * Passport method that logs out current user
    */
-  logout(): void,
+  logout(): void;
 
-  isAuthenticated(): boolean,
+  isAuthenticated(): boolean;
 }
 
 export default IContext;

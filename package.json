@@ -14,10 +14,11 @@
     "migrate": "yarn knex migrate:latest",
     "migration:make": "yarn knex migrate:make",
     "migration:rollback": "yarn knex migrate:rollback",
-	"start:dev": "yarn pm2 startOrRestart pm2/development.json",
-	"start:debug": "nodemon --inspect=19771 index.ts",
-	"start:prod": "yarn pm2 startOrRestart pm2/production.json",
-	"build": "rm -rf build/ & tsc & cp .env build/.env"
+    "start:dev": "yarn pm2 startOrRestart pm2/development.json",
+    "start:debug": "nodemon --inspect=19771 index.ts",
+    "start:prod": "yarn pm2 startOrRestart pm2/production.json",
+    "build": "rm -rf build/ & tsc & cp .env build/.env",
+    "lint": "eslint app --ext .ts"
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
@@ -50,11 +51,27 @@
     "@types/koa-router": "^7.0.42",
     "@types/node": "^12.7.5",
     "@types/passport-local": "^1.0.33",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.4.0",
     "pm2": "^3.5.1",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
+  },
+  "lint-staged": {
+    "app/**/*.ts": [
+      "prettier --write",
+      "git add",
+      "eslint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

@@ -25,20 +25,20 @@ passport.deserializeUser(async (id: number, done: Function) => {
   }
 });
 
-export const authEmail = (ctx: Context, next) => passport.authenticate('email', async (err, user, info) => {
-  if (err) {
-    throw new Error('');
-  }
+export const authEmail = (ctx: Context, next) =>
+  passport.authenticate('email', async (err, user, info) => {
+    if (err) {
+      throw new Error('');
+    }
 
-  if (user) {
-    await ctx.login(user);
-    await next();
-  }
+    if (user) {
+      await ctx.login(user);
+      await next();
+    }
 
-  if (info && info.message) {
-
-  }
-})(ctx, next);
+    if (info && info.message) {
+    }
+  })(ctx, next);
 
 export const isAuthenticated = () => async (ctx: Context, next) => {
   if (!ctx.isAuthenticated()) {
@@ -48,8 +48,6 @@ export const isAuthenticated = () => async (ctx: Context, next) => {
   await next();
 };
 
-const auth = () => compose([
-  passport.initialize(),
-]);
+const auth = () => compose([passport.initialize()]);
 
 export default auth;

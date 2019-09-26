@@ -11,7 +11,7 @@ const connect = async (): Promise<any> => {
     .select()
     .from('knex_migrations')
     .catch(() => {
-      throw new Error('Error establishing a database connection')
+      throw new Error('Error establishing a database connection');
     });
 };
 

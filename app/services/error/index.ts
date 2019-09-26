@@ -1,7 +1,6 @@
 import * as logger from '../logger';
 import { captureException } from '../sentry';
 
-
 export const errorCatchingMiddleware = async (ctx, next) => {
   try {
     await next();

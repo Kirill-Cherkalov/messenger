@@ -10,24 +10,22 @@ export default <M extends Constructor>(ModelClass: M) => {
     public $beforeInsert(ctx: QueryContext) {
       const promise = super.$beforeInsert(ctx);
 
-      return Promise.resolve(promise)
-        .then(() => {
-          return this.generateHash();
-        });
+      return Promise.resolve(promise).then(() => {
+        return this.generateHash();
+      });
     }
 
     public $beforeUpdate(queryOptions: ModelOptions, ctx: QueryContext) {
       const promise = super.$beforeUpdate(queryOptions, ctx);
       const self = this as any;
 
-      return Promise.resolve(promise)
-        .then(() => {
-          if (queryOptions.patch && self.password === undefined) {
-            return;
-          }
+      return Promise.resolve(promise).then(() => {
+        if (queryOptions.patch && self.password === undefined) {
+          return;
+        }
 
-          return this.generateHash();
-        });
+        return this.generateHash();
+      });
     }
 
     public verifyPassword(password: string): Promise<Boolean> {
@@ -39,9 +37,9 @@ export default <M extends Constructor>(ModelClass: M) => {
       const self = this as any;
       const password = self.password;
 
-      return bcrypt.hash(password, SALT_ROUNDS).then((hash) => {
+      return bcrypt.hash(password, SALT_ROUNDS).then(hash => {
         self.password = hash;
       });
     }
   };
-}
+};
