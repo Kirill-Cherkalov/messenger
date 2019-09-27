@@ -1,13 +1,13 @@
-import * as util from "util";
-import * as winston from "winston";
-import {string} from "joi";
+import * as util from 'util';
+import * as winston from 'winston';
+import { string } from 'joi';
 
 const { createLogger, format, transports } = winston;
 const { combine, printf, timestamp } = format;
 
 export interface Log extends winston.LogEntry {
-  stack?: string,
-  timestamp?: string,
+  stack?: string;
+  timestamp?: string;
 }
 
 type Loggable = Log | Error | string;
@@ -33,12 +33,10 @@ function customFormat(log: Log): string {
  */
 export const logger: winston.Logger = createLogger({
   format: combine(timestamp(), printf(customFormat)),
-  transports: [
-    new transports.Console()
-  ],
+  transports: [new transports.Console()],
 });
 
-function bind (level: string) {
+function bind(level: string) {
   return (loggable: Loggable) => {
     if (loggable instanceof Error) {
       return logger.log({ level, message: loggable.message, stack: loggable.stack });
@@ -52,10 +50,10 @@ function bind (level: string) {
   };
 }
 
-export const error = bind("error");
-export const warn = bind("warn");
-export const info = bind("info");
-export const http = bind("http");
-export const verbose = bind("verbose");
-export const debug = bind("debug");
-export const silly = bind("silly");
+export const error = bind('error');
+export const warn = bind('warn');
+export const info = bind('info');
+export const http = bind('http');
+export const verbose = bind('verbose');
+export const debug = bind('debug');
+export const silly = bind('silly');

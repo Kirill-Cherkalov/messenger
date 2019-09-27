@@ -7,8 +7,8 @@ const mixins = compose(
   Visibility,
   timestampPlugin({
     createdAt: 'createdAt',
-	  updatedAt: 'updatedAt',
+    updatedAt: 'updatedAt',
   }),
 );
 
-export default class Base extends mixins(Model){};
+export default class Base extends mixins(Model) {}

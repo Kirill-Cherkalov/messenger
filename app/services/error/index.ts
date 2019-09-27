@@ -4,7 +4,7 @@ import { ValidationError as ValidationErrorJoi } from 'joi';
 import * as logger from '../logger';
 import { captureException } from '../sentry';
 
-function joiErrorToData (error: ValidationErrorJoi) {
+function joiErrorToData(error: ValidationErrorJoi) {
   const details = {};
 
   for (const item of error.details) {
@@ -22,7 +22,8 @@ export const errorCatchingMiddleware = async (ctx, next) => {
     if (error instanceof ValidationErrorObjection) {
       ctx.status = 400;
       ctx.body = error.data;
-    } else if (error.details) { // For Joi error handling
+    } else if (error.details) {
+      // For Joi error handling
       ctx.status = 400;
       ctx.body = joiErrorToData(error);
     } else {

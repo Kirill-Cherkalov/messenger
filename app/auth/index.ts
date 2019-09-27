@@ -2,7 +2,7 @@ import { Context } from 'koa';
 import passport from 'koa-passport';
 import compose from 'koa-compose';
 
-import User  from '../models/user';
+import User from '../models/user';
 import emailStrategy from './strategies/email';
 
 passport.use('email', emailStrategy);
@@ -35,9 +35,6 @@ export const isAuthenticated = async (ctx: Context, next) => {
   await next();
 };
 
-const auth = () => compose([
-  passport.initialize(),
-  passport.session(),
-]);
+const auth = () => compose([passport.initialize(), passport.session()]);
 
 export default auth;

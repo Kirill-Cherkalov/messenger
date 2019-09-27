@@ -1,11 +1,11 @@
-import { ValidationError } from "objection";
+import { ValidationError } from 'objection';
 import BaseModel from '../base';
 import Password from '../../db/plugins/password';
 
 export type RegisterData = {
-  email: string,
-  password: string,
-}
+  email: string;
+  password: string;
+};
 
 export default class User extends Password(BaseModel) {
   readonly id!: number;
@@ -16,13 +16,13 @@ export default class User extends Password(BaseModel) {
   static tableName = 'users';
   static hidden = ['password'];
 
-  static async create (data: RegisterData) {
+  static async create(data: RegisterData) {
     const user = await User.query().findOne({ email: data.email });
 
     if (user) {
       throw new ValidationError({
         data: {
-          email: `User with email '${data.email}' already exists.`
+          email: `User with email '${data.email}' already exists.`,
         },
         type: 'ModelValidation',
       });
