@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "koa-starter-development",
+      "script": "./index.ts",
+      "interpreter": "node",
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "watch": true,
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "node_args": ["-r", "ts-node/register", "--inspect"]
+    }
+  ]
+}
