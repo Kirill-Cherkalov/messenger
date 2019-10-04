@@ -13,7 +13,7 @@ module.exports = {
 	'rules': {
     'prettier/prettier': 'error',
 		'indent': [ 'error', 2 ],
-		'linebreak-style': [ 'error', 'unix' ],
+		'linebreak-style': 'off',
 		'quotes': [ 'error', 'single' ],
 		'semi': [ 'error', 'always' ],
 		'camelcase': 'error',
