@@ -391,29 +391,29 @@
     "@types/express-serve-static-core" "*"
     "@types/mime" "*"
 
-"@typescript-eslint/experimental-utils@2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.3.2.tgz#e50f31264507e6fec7b33840bb6af260c24f4ea8"
-  integrity sha512-t+JGdTT6dRbmvKDlhlVkEueoZa0fhJNfG6z2cpnRPLwm3VwYr2BjR//acJGC1Yza0I9ZNcDfRY7ubQEvvfG6Jg==
+"@typescript-eslint/experimental-utils@2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.3.3.tgz#0685613063ff397cfa9209be2e6e81c0382a9b11"
+  integrity sha512-MQ4jKPMTU1ty4TigJCRKFPye2qyQdH8jzIIkceaHgecKFmkNS1hXPqKiZ+mOehkz6+HcN5Nuvwm+frmWZR9tdg==
   dependencies:
     "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.3.2"
+    "@typescript-eslint/typescript-estree" "2.3.3"
     eslint-scope "^5.0.0"
 
-"@typescript-eslint/parser@^2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.3.2.tgz#e9b742e191cd1209930da469cde379591ad0af5b"
-  integrity sha512-nq1UQeNGdKdqdgF6Ww+Ov2OidWgiL96+JYdXXZ2rkP/OWyc6KMNSbs6MpRCpI8q+PmDa7hBnHNQIo7w/drYccA==
+"@typescript-eslint/parser@^2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.3.3.tgz#af519d6572bdee3e9610e21c8362766858976bc1"
+  integrity sha512-+cV53HuYFeeyrNW8x/rgPmbVrzzp/rpRmwbJnNtwn4K8mroL1BdjxwQh7X9cUHp9rm4BBiEWmD3cSBjKG7d5mw==
   dependencies:
     "@types/eslint-visitor-keys" "^1.0.0"
-    "@typescript-eslint/experimental-utils" "2.3.2"
-    "@typescript-eslint/typescript-estree" "2.3.2"
+    "@typescript-eslint/experimental-utils" "2.3.3"
+    "@typescript-eslint/typescript-estree" "2.3.3"
     eslint-visitor-keys "^1.1.0"
 
-"@typescript-eslint/typescript-estree@2.3.2":
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.3.2.tgz#107414aa04e689fe6f7251eb63fb500217f2b7f4"
-  integrity sha512-eZNEAai16nwyhIVIEaWQlaUgAU3S9CkQ58qvK0+3IuSdLJD3W1PNuehQFMIhW/mTP1oFR9GNoTcLg7gtXz6lzA==
+"@typescript-eslint/typescript-estree@2.3.3":
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.3.3.tgz#be802220876bedfb80384cde1d46fe57ae7abf71"
+  integrity sha512-GkACs12Xp8d/STunNv/iSMYJFQrkrax9vuPZySlgSzoJJtw1cp6tbEw4qsLskQv6vloLrkFJHcTJ0a/yCB5cIA==
   dependencies:
     glob "^7.1.4"
     is-glob "^4.0.1"
@@ -707,6 +707,11 @@ bluebird@^3.5.5:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.5.tgz#a8d0afd73251effbbd5fe384a77d73003c17a71f"
   integrity sha512-5am6HnnfN+urzt4yfg7IgTbotDjIT/u8AJpEt0sIU9FtXfVeezXAPKswrG+xKUCOYAINpSdgZVDU6QFh+cuH3w==
+
+bluebird@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.0.tgz#56a6a886e03f6ae577cffedeb524f8f2450293cf"
+  integrity sha512-aBQ1FxIa7kSWCcmKHlcHFlT2jt6J/l4FzC7KcPELkOJOsPOb/bccdhmIrKDfXhwFrmc7vDoDrrepFvGqjyXGJg==
 
 bodec@^0.1.0:
   version "0.1.0"
@@ -1004,7 +1009,7 @@ commander@^2.20.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
   integrity sha512-7j2y+40w61zy6YC2iRNpUe/NwhNyoXrYpHMrSunaMG64nRnaf96zO/KMQR4OyN/UnE5KLyEBnKHd4aG3rskjpQ==
 
-commander@^3.0.1:
+commander@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/commander/-/commander-3.0.2.tgz#6837c3fb677ad9933d1cfba42dd14d5117d6b39e"
   integrity sha512-Gar0ASD4BDyKC4hl4DwHqDrmvjoxWKZigVnAbn5H1owvm4CxCPdb0HQDehwNYMJpla5+M2tPmPARzhtYuwpHow==
@@ -1377,10 +1382,10 @@ escodegen@1.x.x:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.3.0.tgz#e73b48e59dc49d950843f3eb96d519e2248286a3"
-  integrity sha512-EWaGjlDAZRzVFveh2Jsglcere2KK5CJBhkNSa1xs3KfMUGdRiT7lG089eqPdvlzWHpAqaekubOsOMu8W8Yk71A==
+eslint-config-prettier@^6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.4.0.tgz#0a04f147e31d33c6c161b2dd0971418ac52d0477"
+  integrity sha512-YrKucoFdc7SEko5Sxe4r6ixqXPDP1tunGw91POeZTTRKItf/AMFYt/YLEQtZMkR2LVpAVhcAcZgcWpm1oGPW7w==
   dependencies:
     get-stdin "^6.0.0"
 
@@ -2556,14 +2561,14 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-knex@^0.19.4:
-  version "0.19.4"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-0.19.4.tgz#cf62f8824392387152a0a188a6585d5dea6832bb"
-  integrity sha512-FRnR2iWEAoKkrVo3KyiEYeGwUjZOZT2WDko/tn3nCKzQdn6m8+5qSUeYLGa9zM8SwFGJriYKQSSMiDJKLILcMQ==
+knex@^0.19.5:
+  version "0.19.5"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-0.19.5.tgz#3597ebecf88a5942f18c3e6d91af53bda59eeb5d"
+  integrity sha512-Hy258avCVircQq+oj3WBqPzl8jDIte438Qlq+8pt1i/TyLYVA4zPh2uKc7Bx0t+qOpa6D42HJ2jjtl2vagzilw==
   dependencies:
-    bluebird "^3.5.5"
+    bluebird "^3.7.0"
     colorette "1.1.0"
-    commander "^3.0.1"
+    commander "^3.0.2"
     debug "4.1.1"
     getopts "2.2.5"
     inherits "~2.0.4"
@@ -2727,10 +2732,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lint-staged@^9.4.1:
-  version "9.4.1"
-  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.1.tgz#60c0f85745bd398e6460aa7f5adb3cad3a2b862c"
-  integrity sha512-zFRbo1bAJEVf1m33paTTjDVfy2v3lICCqHfmQSgNoI+lWpi7HPG5y/R2Y7Whdce+FKxlZYs/U1sDSx8+nmQdDA==
+lint-staged@^9.4.2:
+  version "9.4.2"
+  resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-9.4.2.tgz#14cb577a9512f520691f8b5aefce6a8f7ead6c04"
+  integrity sha512-OFyGokJSWTn2M6vngnlLXjaHhi8n83VIZZ5/1Z26SULRUWgR3ITWpAEQC9Pnm3MC/EpCxlwts/mQWDHNji2+zA==
   dependencies:
     chalk "^2.4.2"
     commander "^2.20.0"

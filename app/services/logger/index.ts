@@ -1,6 +1,5 @@
 import * as util from 'util';
 import * as winston from 'winston';
-import { string } from 'joi';
 
 const { createLogger, format, transports } = winston;
 const { combine, printf, timestamp } = format;
@@ -12,12 +11,6 @@ export interface Log extends winston.LogEntry {
 
 type Loggable = Log | Error | string;
 
-/**
- * Custom log format function
- *
- * @param {Log} log
- * @return {string}
- */
 function customFormat(log: Log): string {
   const { level, message, stack, timestamp } = log;
 
@@ -28,9 +21,6 @@ function customFormat(log: Log): string {
   return util.format('[%s] %s: %s', timestamp, level, message);
 }
 
-/**
- * @type {Logger}
- */
 export const logger: winston.Logger = createLogger({
   format: combine(timestamp(), printf(customFormat)),
   transports: [new transports.Console()],
