@@ -5,8 +5,13 @@
   "author": "Effective Soft Team",
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.effective-soft.com/projects/ES617/repos/koa-starter-ts"
+  },
   "engines": {
-    "node": ">10.15.0"
+    "node": ">=12.13.0",
+    "yarn": "~1.19.0"
   },
   "scripts": {
     "pm2": "pm2",
@@ -22,12 +27,12 @@
   },
   "dependencies": {
     "@koa/cors": "^3.0.0",
-    "@sentry/node": "^5.6.2",
+    "@sentry/node": "^5.7.1",
     "bcrypt": "^3.0.6",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "joi": "^14.3.1",
     "knex": "^0.19.5",
-    "koa": "^2.8.2",
+    "koa": "^2.10.0",
     "koa-bodyparser": "^4.2.1",
     "koa-compose": "^4.1.0",
     "koa-json": "^2.0.2",
@@ -45,22 +50,22 @@
   },
   "devDependencies": {
     "@types/joi": "^14.3.3",
-    "@types/koa": "^2.0.50",
+    "@types/koa": "^2.0.51",
     "@types/koa-bodyparser": "^4.3.0",
     "@types/koa-passport": "^4.0.2",
     "@types/koa-router": "^7.0.42",
-    "@types/node": "^12.7.11",
+    "@types/node": "^12.11.2",
     "@types/passport-local": "^1.0.33",
-    "@typescript-eslint/parser": "^2.3.3",
+    "@typescript-eslint/parser": "^2.5.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^3.0.8",
+    "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
-    "pm2": "^3.5.1",
+    "pm2": "^4.1.2",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.4"
   },
   "lint-staged": {
     "app/**/*.ts": [
