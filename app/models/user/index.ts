@@ -1,4 +1,5 @@
 import { ValidationError } from 'objection';
+
 import BaseModel from '../base';
 import Password from '../../db/plugins/password';
 
@@ -12,7 +13,7 @@ export default class User extends Password(BaseModel) {
   email!: string;
   password!: string;
 
-  static timestamp = true;
+  static timestamp = false;
   static tableName = 'users';
   static hidden = ['password'];
 
