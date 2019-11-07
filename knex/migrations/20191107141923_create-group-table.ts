@@ -4,8 +4,8 @@ import * as Knex from "knex";
 export async function up(knex: Knex): Promise<any> {
   return knex.schema.createTable('group', table => {
     table.increments('id').primary().notNullable();
-    table.string('name', 50);
-    table.boolean('is_active');
+    table.string('name', 50).notNullable();
+    table.boolean('is_active').notNullable().defaultTo(false);
     table.timestamps(true, true);
   });
 }
