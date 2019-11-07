@@ -16,7 +16,7 @@ module.exports = {
 		'linebreak-style': 'off',
 		'quotes': [ 'error', 'single' ],
 		'semi': [ 'error', 'always' ],
-		'camelcase': 'error',
+		'camelcase': 'warn',
 		'max-params': [ 'error', 4 ],
 		'comma-dangle': [ 'error', 'always-multiline' ],
 		'object-curly-spacing': [ 'error', 'always' ],
