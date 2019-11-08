@@ -1,10 +1,14 @@
-import { ValidationError } from 'objection';
+import { ValidationError, Model } from 'objection';
 
 import BaseModel from '../base';
 
 export type JoinData = {
   userId: number;
   groupId: number;
+};
+
+export type GetListData = {
+  userId: number;
 };
 
 export default class UserGroup extends BaseModel {
@@ -15,6 +19,27 @@ export default class UserGroup extends BaseModel {
 
   static timestamp = false;
   static tableName = 'user_group';
+
+  static get relationMappings() {
+    return {
+      users: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: `${__dirname}/../user`,
+        join: {
+          from: 'user_group.userId',
+          to: 'users.id',
+        },
+      },
+      group: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: `${__dirname}/../group`,
+        join: {
+          from: 'user_group.group_id',
+          to: 'group.id',
+        },
+      },
+    };
+  }
 
   static async joinToGroup(data: JoinData) {
     const user = await UserGroup.query().findOne({

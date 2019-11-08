@@ -1,7 +1,6 @@
 import { ValidationError } from 'objection';
 
 import BaseModel from '../base';
-import UserGroup from '../userGroup/index';
 
 export type createGroupData = {
   name: string;

@@ -1,4 +1,4 @@
-import { ValidationError } from 'objection';
+import { ValidationError, Model } from 'objection';
 
 import BaseModel from '../base';
 import Password from '../../db/plugins/password';
@@ -16,6 +16,10 @@ export type UpdateData = {
   isActive?: boolean;
 };
 
+export type GroupListData = {
+  userId: number;
+};
+
 export default class User extends Password(BaseModel) {
   readonly id!: number;
   readonly google_id: number;
@@ -28,6 +32,23 @@ export default class User extends Password(BaseModel) {
   static timestamp = false;
   static tableName = 'users';
   static hidden = ['password', 'google_id'];
+
+  static get relationMappings() {
+    return {
+      group: {
+        relation: Model.ManyToManyRelation,
+        modelClass: `${__dirname}/../group`,
+        join: {
+          from: 'users.id',
+          through: {
+            from: 'user_group.user_id',
+            to: 'user_group.group_id',
+          },
+          to: 'group.id',
+        },
+      },
+    };
+  }
 
   static async create(data: RegisterData) {
     const user = await User.query().findOne({ email: data.email });
@@ -53,5 +74,11 @@ export default class User extends Password(BaseModel) {
       last_name: data.lastName || user.last_name,
       is_active: data.isActive || user.is_active,
     });
+  }
+
+  static async getUserGroupList(data: GroupListData) {
+    return await User.query()
+      .eager('group')
+      .where({ id: data.userId });
   }
 }

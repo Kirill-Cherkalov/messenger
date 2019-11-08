@@ -1,6 +1,6 @@
 import Router from 'koa-router';
 
-import * as Auth from '../../../../entities/user';
+import * as User from '../../../../entities/user';
 import { isAuthenticated } from '../../../../auth';
 import * as validation from './validation';
 
@@ -10,11 +10,18 @@ const router = new Router({
   prefix: '/user',
 });
 
-router.post('/update', isAuthenticated, validation.onUpdate, update);
+router.post('/update', isAuthenticated, validation.onUpdate, update).get('/groups', getUsersGroups);
+
+async function getUsersGroups(ctx: IContext) {
+  const { user } = ctx.state;
+  const groups = await User.getUserGroupList({ userId: user.id });
+
+  ctx.body = groups;
+}
 
 async function update(ctx: IContext) {
   const { user } = ctx.state;
-  const updatedUser = await Auth.update(ctx.request.body, user);
+  const updatedUser = await User.update(ctx.request.body, user);
 
   ctx.body = updatedUser;
 }
