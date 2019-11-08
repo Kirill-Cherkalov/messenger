@@ -12,5 +12,5 @@ export async function up(knex: Knex): Promise<any> {
 export async function down(knex: Knex): Promise<any> {
   return knex.schema.table('recipient_group_id', table => {
     table.dropColumn('recipient_group_id');
-  })
+  });
 }

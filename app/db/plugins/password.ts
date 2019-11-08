@@ -3,7 +3,7 @@ import { Model, ModelOptions, QueryContext } from 'objection';
 
 type Constructor<T = Model> = new (...args: any[]) => T;
 
-const SALT_ROUNDS: number = 12;
+const SALT_ROUNDS: number = parseInt(process.env.SALT_ROUNDS, 10);
 
 export default <M extends Constructor>(ModelClass: M) => {
   return class extends ModelClass {
@@ -30,6 +30,7 @@ export default <M extends Constructor>(ModelClass: M) => {
 
     public verifyPassword(password: string): Promise<Boolean> {
       const self = this as any;
+
       return bcrypt.compare(password, self.password);
     }
 

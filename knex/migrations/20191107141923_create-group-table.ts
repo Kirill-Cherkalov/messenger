@@ -5,7 +5,7 @@ export async function up(knex: Knex): Promise<any> {
   return knex.schema.createTable('group', table => {
     table.increments('id').primary().notNullable();
     table.string('name', 50).notNullable();
-    table.boolean('is_active').notNullable().defaultTo(false);
+    table.boolean('is_active').notNullable().defaultTo(true);
     table.timestamps(true, true);
   });
 }

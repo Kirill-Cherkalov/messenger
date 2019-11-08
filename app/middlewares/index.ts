@@ -8,7 +8,7 @@ import session from 'koa-session';
 const isDevelopment: boolean = process.env.NODE_ENV === 'development';
 const secret: string = process.env.APP_SECRET;
 const maxAge: number = parseInt(process.env.SESSION_LIFETIME, 10);
-const sessionIdKey = 'sessionId';
+const sessionIdKey = process.env.SESSION_ID_KEY;
 
 export default (app: Koa): void => {
   app.keys = [secret];

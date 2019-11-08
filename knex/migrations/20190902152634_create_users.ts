@@ -8,7 +8,7 @@ export async function up(knex: Knex): Promise<any> {
     table.string('last_name', 50);
 		table.string('email').notNullable();
 		table.string('password');
-    table.boolean('is_active').notNullable().defaultTo(false);
+    table.boolean('is_active').notNullable().defaultTo(true);
 		table.timestamps(true, true);
 		table.timestamp('deleted_at');
 	});

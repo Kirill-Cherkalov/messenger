@@ -8,7 +8,7 @@ export async function up(knex: Knex): Promise<any> {
     table.foreign('user_id').references('id').inTable('users');
     table.integer('group_id').unsigned().notNullable();
     table.foreign('group_id').references('id').inTable('group');
-    table.boolean('is_active').notNullable().defaultTo(false);
+    table.boolean('is_active').notNullable().defaultTo(true);
 		table.timestamps(true, true);
 		table.timestamp('deleted_at');
   });
