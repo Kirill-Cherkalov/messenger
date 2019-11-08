@@ -10,7 +10,7 @@ const router = new Router({
   prefix: '/user',
 });
 
-router.post('/update', isAuthenticated, update);
+router.post('/update', isAuthenticated, validation.onUpdate, update);
 
 async function update(ctx: IContext) {
   const { user } = ctx.state;

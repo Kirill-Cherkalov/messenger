@@ -35,7 +35,7 @@ export default class User extends Password(BaseModel) {
     if (user) {
       throw new ValidationError({
         data: {
-          email: `User with email '${data.email}' already exists.`,
+          error: `User with email '${data.email}' already exists.`,
         },
         type: 'ModelValidation',
       });
