@@ -14,8 +14,7 @@ export async function up(knex: Knex): Promise<any> {
 
 export async function down(knex: Knex): Promise<any> {
   return knex.schema.table('message', table => {
-    table.dropColumn('is_reminder');
-    table.dropColumn('next_remind_date');
-    table.dropColumn('reminder_frequency_id');
+    table.dropColumns('is_reminder', 'next_remind_date')
+    table.dropForeign(['reminder_frequency_id'])
   });
 }
