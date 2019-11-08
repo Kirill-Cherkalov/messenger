@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "koa-starter-production",
+      "name": "messenger-production",
       "script": "./build/index.js",
       "log_date_format": "YYYY-MM-DD HH:mm Z",
       "exec_mode": "cluster",

@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "koa-starter-development",
+      "name": "messenger-development",
       "script": "./index.ts",
       "interpreter": "node",
       "log_date_format": "YYYY-MM-DD HH:mm Z",
