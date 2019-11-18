@@ -5,6 +5,7 @@ import BaseModel from '../base';
 export type CreateData = {
   messageBody: string;
   userId: number;
+  isReminder: boolean;
 };
 
 export default class Message extends BaseModel {

@@ -84,8 +84,7 @@ export default class User extends Password(BaseModel) {
       .eager('group')
       .modifyEager('group', builder => {
         builder.page(data.page, data.pageSize);
-      })
-      .where({ id: data.userId });
+      });
   }
 
   static async getUserByEmail(data: { email: string }) {
