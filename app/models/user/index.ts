@@ -18,6 +18,8 @@ export type UpdateData = {
 
 export type GroupListData = {
   userId: number;
+  page?: number;
+  pageSize?: number;
 };
 
 export default class User extends Password(BaseModel) {
@@ -78,7 +80,11 @@ export default class User extends Password(BaseModel) {
 
   static async getUserGroupList(data: GroupListData) {
     return await User.query()
+      .findById(data.userId)
       .eager('group')
+      .modifyEager('group', builder => {
+        builder.page(data.page, data.pageSize);
+      })
       .where({ id: data.userId });
   }
 
