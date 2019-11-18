@@ -14,7 +14,11 @@ router.post('/update', isAuthenticated, validation.onUpdate, update).get('/group
 
 async function getUsersGroups(ctx: IContext) {
   const { user } = ctx.state;
-  const groups = await User.getUserGroupList({ userId: user.id });
+  const groups = await User.getUserGroupList({
+    userId: user.id,
+    page: parseInt(ctx.request.query.page), // need add types
+    pageSize: parseInt(ctx.request.query.pageSize), // need add types
+  });
 
   ctx.body = groups;
 }
