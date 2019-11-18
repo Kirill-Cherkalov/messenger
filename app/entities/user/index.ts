@@ -8,3 +8,7 @@ export const update = async (data: UpdateData, user: User): Promise<User> => {
 export const getUserGroupList = async (data: GroupListData) => {
   return await User.getUserGroupList(data);
 };
+
+export const getUserByEmail = async (data: { email: string }): Promise<User> => {
+  return await User.getUserByEmail(data);
+};

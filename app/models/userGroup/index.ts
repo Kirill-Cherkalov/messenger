@@ -3,7 +3,7 @@ import { ValidationError, Model } from 'objection';
 import BaseModel from '../base';
 
 export type JoinData = {
-  userId: number;
+  userId?: number;
   groupId: number;
 };
 

@@ -51,7 +51,7 @@ export default class User extends Password(BaseModel) {
   }
 
   static async create(data: RegisterData) {
-    const user = await User.query().findOne({ email: data.email });
+    const user = this.getUserByEmail({ email: data.email });
 
     if (user) {
       throw new ValidationError({
@@ -80,5 +80,9 @@ export default class User extends Password(BaseModel) {
     return await User.query()
       .eager('group')
       .where({ id: data.userId });
+  }
+
+  static async getUserByEmail(data: { email: string }) {
+    return await User.query().findOne({ email: data.email });
   }
 }

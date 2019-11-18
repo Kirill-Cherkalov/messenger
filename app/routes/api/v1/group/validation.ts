@@ -1,9 +1,13 @@
 import Joi from 'joi';
 import { RouterContext } from 'koa-router';
+import { GroupType } from '../../../../models/group';
 
 const CreateSchema = {
   name: Joi.string()
     .regex(/^.{0,50}$/)
+    .required(),
+  groupType: Joi.string()
+    .valid([GroupType.chat, GroupType.direct])
     .required(),
 };
 

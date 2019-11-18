@@ -6,6 +6,7 @@ import { isAuthenticated } from '../../../../auth';
 import * as validation from './validation';
 
 import IContext from '../../../../interfaces/context';
+import { GroupType } from '../../../../models/group';
 
 const router = new Router({
   prefix: '/group',
@@ -14,6 +15,7 @@ const router = new Router({
 router
   .post('/join-to-group', isAuthenticated, validation.onJoin, joinToGroup)
   .post('/create', isAuthenticated, validation.onCreate, createGroup)
+  .post('/create-direct', isAuthenticated, createDirect)
   .get('/list', isAuthenticated, getAllGroups);
 
 async function getAllGroups(ctx: IContext) {
@@ -37,11 +39,19 @@ async function createGroup(ctx: IContext) {
   const group = await Group.create({
     name: ctx.request.body.name,
     userId: user.id,
+    groupType: GroupType.chat,
   });
 
-  await UserGroup.joinToGroup({
-    groupId: group.id,
+  ctx.body = group;
+}
+
+async function createDirect(ctx: IContext) {
+  const { user } = ctx.state;
+  const group = await Group.createDirectGroup({
+    name: ctx.request.body.name,
     userId: user.id,
+    friendEmail: ctx.request.body.friendEmail,
+    groupType: GroupType.direct,
   });
 
   ctx.body = group;
